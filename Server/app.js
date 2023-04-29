@@ -1,6 +1,6 @@
 //Basic Lib Import
 const express = require("express");
-// const Router = require("./Src/Routers/Api.js");
+const Router = require("./Src/routes/api");
 const app = new express();
 const BodyParser = require("body-parser");
 
@@ -26,8 +26,16 @@ app.use(Xss())
 app.use(Hpp())
 
 
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}))
+
+
+
 // Body Parser Implement 
 app.use(BodyParser.json())
+
+
+
 
 
 // Request Rate Limite 
@@ -42,20 +50,38 @@ app.use(Limiter)
 
 
 // Mongo DB Database Connection 
-// let Url = "mongodb://127.0.0.1:27017/ToDo"  // ToDo হচ্ছে মঙ্গোডিভি ডাটাবেসের নাম, যে আগেই তৈরি করে নিতে হবে। 
-// let OPTION = {username:"", password:""}
-// Mongose.connect(Url, OPTION(error)=>{
-//     console.log("Mongo DB Datbase Connection Success");
-//     console.log(error)
-// })
-// Mongose.connect(Url,(error)=>{
-//     console.log("Mongo DB Datbase Connection Success");
-//     console.log(error)
-// })
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://Rasal_Hossain:mrhthvgvbnv@cluster0.u9f9cje.mongodb.net/?retryWrites=true&w=majority";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("Inventory_Project").command({ ping: 1 });
+    console.log("successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+
 
 
 // API Create, Or Routing Implement
-// app.use("/api/v1", Router)
+app.use("/api/v1", Router)
 
 
 // Undefine Route Or Undefine API 
