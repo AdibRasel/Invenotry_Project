@@ -1,0 +1,180 @@
+Business Inventory Project
+==========================
+1. Product/Good Management
+2. Supplier's Management
+3. Customer's Management
+4. Product Seles Management
+5. Product Return Management
+6. Product By/Purchese Management
+7. Business Expense Management
+8. Product Stock Management
+9. Business Pfofit-Loss-Growth
+10. And more
+
+Software Data Design
+==================
+Data Model
+---------
+1. Database Normalization- বর্তমানে এই মডেল টি বেশি ব্যবহার করা হয়।
+2. Embedded data model- 
+
+Multiple User Data Manage - for Multiple Business
+1. Business/ User Sign Up
+2. User Login
+3. Account Recover/Reset Using OTP Code
+4. mange Profile Information (Create/Read/Update)
+    User Data Collection(Model)
+    -----------------------------
+        _id: ObjectId(Primary Key)
+        emai: String(Unique)
+        firstName: String
+        lastName: String
+        mobile: String
+        password: String
+        photo: String
+        createDate: Date 
+    OTP Data Collection(Model)
+    ---------------------
+        _id: ObjectId(Primary Key)
+        email: String
+        otp: String
+        status: Number (Default 0)
+        createDate: Date
+
+
+Product Category(Brands) Data Manage
+1. New brand Create
+2. Brand Name Update
+3. Read/Search/Filter brand list
+4. Can Delete brand item if never used
+5. Can't Delete brand if exist with any other's Product
+    Brands Data Collection(Model)
+    --------------------------
+        _id: ObjectId(Primary Key)
+        UserEmail: String
+        Name: String
+        createDate: Date
+
+
+Product Category(Categories) Data Manage
+1. New Category Create 
+2. Category Name Update
+3. Read/Search/Filter category list
+4. Can delete category item if never used
+5. can't delete category if exist with any other's Product
+    Categories Data Collection(Model)
+    -------------------------------
+        _id: ObjectId(Primary Key)
+        UserEmail: String
+        Name: String
+        createDate: Date
+
+
+Product List Data Manage
+1. New Product Create
+2. Product Update
+3. Read/Search/Filter Product List
+4. Can Delete Product item if never used
+4. Can't Delte product if exist with any other's sells/purchase/Return
+    Product List Data Collection(Model)
+    ----------------------------------
+        _id: ObjectId(Primary Key)
+        Useremail: String
+        CategoryID: ObjectID(Foregin Key){Line: 67}
+        BrandID: ObjectID(Foreign Key){Line 53}
+        Name: String
+        Unit: String
+        Detaills: String
+        createDate: Date
+
+
+Product Suppliers Data mange
+1. New Supplier Create
+2. Supplier Update
+3. Read/Search/Filter Supplier list
+4. Can Delete Suppliers item never used
+5. Can't Suppliers Category if exist with any other's purchase
+    Suppliers Data Collection (Model)
+    --------------------------------
+        _id: ObjectID(Primary Key)
+        UserEmail: String
+        Name: String
+        Address: String
+        Phone: String
+        Email: String
+        createDate: Date
+
+Product Customer Data mange
+1. New Customer Create
+2. Customer Update 
+3. Read/Search/Filter Customer list
+4. Can delete Customer item if never used
+5. Can't Delet Customer if exist with any other's sells/Return
+    Customer Data Collection
+    ----------------------
+        _id: ObjectID(Primary Key)
+        User: String
+        Name: String
+        Address: String
+        Phone: String
+        Email: String
+        createDate: Date
+
+
+Business Expense Type Data Manage
+1. New Expense Type Create
+2. Expense type Update
+3. Read/SEarch/ Filter expense type list
+4. Can Delete Expense type item if never used
+5. Can't Delete Expense type if exist with any other's expense
+    Expense Type Data Collection(Model)
+    -------------------------
+        _id: ObjectID(Primary Key)
+        userEmail: String
+        Name: String
+        createDate: Date
+
+Buseness Expense Data Manage
+1. New Expense Create
+2. Expense Update
+3. Read/Search/Filter Expense list
+4. Cand Delete Expense
+    Expense Data Collection
+    -----------------------
+        _id: ObjectID(Primary Key)
+        UserEmail: String
+        TypeID: ObjectID(Foregin Key){line 132}
+        Name: String
+        Amount: Number
+        Note: String
+        createDate: Date
+
+
+
+Product Purchase Data Manage class no: 8
+    Purchase Summary Data Collection(Model)
+    --------------------------------------
+        _id: ObjectID(Primary Key)
+        UserEmail: String
+        SupplierID: ObjectID(Foreign Key)[line 99]
+        VatTax: Number
+        Discount: Number
+        OtherCost: Number
+        ShippingCost: Number
+        GrandTotal: Number
+        Note: String
+        createDate: Date
+
+    Purchese Product Data Collection (Model)
+    ---------------------------------------
+        _id: ObjectID(Primary Key)
+        UserEmail: String
+        PurchaseID: ObjectID(Foregin Key){line 157}
+        ProductID: ObjectID(Foregin Key){line 81}
+        Qty: Number
+        UnitCost: Number
+        Total: Number
+        createDate: Date
+
+
+Class - 10 
