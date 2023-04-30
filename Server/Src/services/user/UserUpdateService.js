@@ -6,3 +6,4 @@ const UserUpdateService = async (Request, DataModel)=>{
         return {status:"fail", data:error.toString()}
     }
 }
+module.exports=UserUpdateService
