@@ -7,13 +7,13 @@ const UserVerifyEmailService = async (Request, DataModel)=>{
         let email = Request.params.email;
         let OTPCode = Math.floor(100000 + Math.random() * 900000)
         //Database First Process
-        let UserCount = (await DataModel.aggreate([{$match: {email:email}}, {$count: "total"}]))
+        let UserCount = (await DataModel.aggregate([{$match: {email:email}}, {$count: "total"}]))
         if(UserCount.length>0){
             // OTP Insert
             await OTPSModel.create({email:email, otp:OTPCode})
             // Email Send
             let SendEmail = await SendEmailUtility(email, "Your Pin Code is=" + OTPCode + "Inventory Project Pin Verification Code")
-            return {status:"Success", data: SendEmail}
+            return {status:"Success", data: SendEmail, otp:OTPCode}
         }else{
             return {status:"fail", data:"No User Found"}
         }

@@ -8,5 +8,5 @@ const DataSchema = mongoose.Schema({
     photo:{type:String},
     createDate:{type:String, default:Date.now()}
 },{versionKey:false});
-const UserModel = mongoose.model("users", DataSchema);
+const UserModel = mongoose.model("Users", DataSchema);
 module.exports= UserModel

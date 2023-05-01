@@ -27,6 +27,7 @@ exports.ProfileUpdate = async (req, res)=>{
 
 exports.ProfileDetails = async (req, res)=>{
     let Result = await UserDetailsService(req, DataModel)
+    res.status(200).json(Result)
 }
 
 exports.RecoverVerifyEmail = async (req, res)=>{
@@ -35,7 +36,7 @@ exports.RecoverVerifyEmail = async (req, res)=>{
 }
 
 exports.RecoverVerifyOTP = async (req, res)=>{
-    let Result = await UserVerifyOTPService(req, DataModel)
+    let Result = await UserVerifyOTPService(req, OTPSModel)
     res.status(200).json(Result)
 }
 
