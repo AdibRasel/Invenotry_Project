@@ -11,7 +11,7 @@ const UserVerifyOTPService = async (Request, DataModel)=>{
             let OTPUpdate = await DataModel.updateOne({email:email, otp:OTPCode, status:status}, {email:email, otp: OTPCode, status: statusUpdate})
             return {status:"success", data:OTPUpdate}
         }else{
-            return {status:"fail", data:"Invalid OTP Code"}
+            return {status:"fail", data:"Invalid OTP Code", paramsTextEmail: email, paramsTextOTPCode: OTPCode}
         }
 
     }catch(error){

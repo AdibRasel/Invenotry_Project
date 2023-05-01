@@ -12,7 +12,7 @@ const UserVerifyEmailService = async (Request, DataModel)=>{
             // OTP Insert
             await OTPSModel.create({email:email, otp:OTPCode})
             // Email Send
-            let SendEmail = await SendEmailUtility(email, "Your Pin Code is=" + OTPCode + "Inventory Project Pin Verification Code")
+            let SendEmail = await SendEmailUtility(email, "Your Pin Code is= " + OTPCode + " Inventory Project Pin Verification Code", " Inventory Project")
             return {status:"Success", data: SendEmail, otp:OTPCode}
         }else{
             return {status:"fail", data:"No User Found"}
