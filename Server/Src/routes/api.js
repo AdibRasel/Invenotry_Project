@@ -1,9 +1,13 @@
 const express = require("express");
+const Router = express.Router();
+
 const AuthVerifyMiddleware = require("../middlewares/AuthVerifyMiddleware")
 
+//User Controller
 const UserController = require("../controllers/Users/UsersController")
 
-const Router = express.Router();
+// Brands Controller
+const BrandsController = require("../controllers/Brands/BrandsController")
 
 
 // User Profile
@@ -17,6 +21,15 @@ Router.get("/RecoverVerifyOTP/:email/:otp", UserController.RecoverVerifyOTP);
 Router.post("/RecoverResetPass", UserController.RecoverResetPass);
 // Delete OTP Data
 Router.post("/OTPDataDalte", UserController.OTPDataDelete);
+
+
+
+
+// Brands
+Router.post("/CreateBrand", AuthVerifyMiddleware, BrandsController.CreateBrand);
+Router.post("/UpdateBrand/:id", AuthVerifyMiddleware, BrandsController.UpdateBrand);
+Router.get("/BrandList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, BrandsController.BrandList);
+Router.get("/BrandDropDwon", AuthVerifyMiddleware, BrandsController.BrandDropDown)
 
 
 
