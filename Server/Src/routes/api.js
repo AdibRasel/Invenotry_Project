@@ -15,6 +15,8 @@ Router.get("/ProfileDetails", AuthVerifyMiddleware, UserController.ProfileDetail
 Router.get("/RecoverVerifyEmail/:email", UserController.RecoverVerifyEmail);
 Router.get("/RecoverVerifyOTP/:email/:otp", UserController.RecoverVerifyOTP);
 Router.post("/RecoverResetPass", UserController.RecoverResetPass);
+// Delete OTP Data
+Router.post("/OTPDataDalte", UserController.OTPDataDelete);
 
 
 

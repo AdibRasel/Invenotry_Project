@@ -1,5 +1,5 @@
-const DataModel = require("../../models/UsersModel");
-const OTPSModel = require("../../models/OTPSModel");
+const DataModel = require("../../models/Users/UsersModel");
+const OTPSModel = require("../../models/Users/OTPSModel");
 const UserCreateService = require("../../services/user/UserCreateService");
 const UserLoginService = require("../../services/user/UserLoginService");
 const UserUpdateService = require("../../services/user/UserUpdateService");
@@ -7,6 +7,7 @@ const UserDetailsService = require("../../services/user/UserDetailsService");
 const UserResetPassService = require("../../services/user/UserResetPassService");
 const UserVerifyOTPService = require("../../services/user/UserVerifyOtpService");
 const UserVerifyEmailService = require("../../services/user/UserVerifyEmailService");
+const OTPDataDelete = require("../../services/user/OTPDataDelete")
 
 
 
@@ -42,5 +43,10 @@ exports.RecoverVerifyOTP = async (req, res)=>{
 
 exports.RecoverResetPass = async (req, res)=>{
     let Result = await UserResetPassService(req, DataModel)
+    res.status(200).json(Result)
+}
+
+exports.OTPDataDelete = async (req, res)=>{
+    let Result = await OTPDataDelete(req, OTPSModel)
     res.status(200).json(Result)
 }

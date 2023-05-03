@@ -1,4 +1,4 @@
-const OTPSModel = require("../../models/OTPSModel");
+const OTPSModel = require("../../models/Users/OTPSModel");
 const SendEmailUtility = require("../../utility/SendEmailUtility");
 
 const UserVerifyEmailService = async (Request, DataModel)=>{
@@ -8,6 +8,7 @@ const UserVerifyEmailService = async (Request, DataModel)=>{
         let OTPCode = Math.floor(100000 + Math.random() * 900000)
         //Database First Process
         let UserCount = (await DataModel.aggregate([{$match: {email:email}}, {$count: "total"}]))
+
         if(UserCount.length>0){
             // OTP Insert
             await OTPSModel.create({email:email, otp:OTPCode})
@@ -17,6 +18,7 @@ const UserVerifyEmailService = async (Request, DataModel)=>{
         }else{
             return {status:"fail", data:"No User Found"}
         }
+        
     }catch(error){
         return {status:"fail", data: error.toString()}
     }
