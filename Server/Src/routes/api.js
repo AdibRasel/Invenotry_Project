@@ -18,8 +18,8 @@ const CustomersControllers = require("../controllers/Customers/CustomerControlle
 // Suppliers
 const SuppliersController = require("../controllers/Suppliers/SuppliersController")
 
-
-
+//Expenses
+const Expenses = require("../controllers/Expenses/ExpensesTypesControllers")
 
 
 
@@ -69,6 +69,13 @@ Router.post("/CreateSuppliers", AuthVerifyMiddleware, SuppliersController.Create
 Router.post("/UpdateSuppliers/:id", AuthVerifyMiddleware, SuppliersController.UpdateSupplier);
 Router.get("/SuppliersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,  SuppliersController.SupplierList);
 Router.get("/SuppliersDropDwon", AuthVerifyMiddleware, SuppliersController.SupplierDropDown)
+
+
+// Expenses
+Router.post("/CreateExpensesTypes", AuthVerifyMiddleware, Expenses.CreateExpenseTypes);
+Router.post("/UpdateExpensesTypes/:id", AuthVerifyMiddleware, Expenses.UpdateExpenseTypes);
+Router.get("/ExpensesTypesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,  Expenses.ExpenseTypesList);
+Router.get("/ExpensesTypesDropDwon", AuthVerifyMiddleware, Expenses.ExpenseTypesDropDown)
 
 
 
