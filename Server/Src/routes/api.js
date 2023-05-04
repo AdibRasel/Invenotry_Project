@@ -9,6 +9,21 @@ const UserController = require("../controllers/Users/UsersController")
 // Brands Controller
 const BrandsController = require("../controllers/Brands/BrandsController")
 
+//Categoris
+const CategoriesControllers = require("../controllers/Categories/CategoriesController")
+
+// Customers
+const CustomersControllers = require("../controllers/Customers/CustomerController")
+
+// Suppliers
+const SuppliersController = require("../controllers/Suppliers/SuppliersController")
+
+
+
+
+
+
+
 
 // User Profile
 Router.post("/Registration", UserController.Registration);
@@ -30,6 +45,35 @@ Router.post("/CreateBrand", AuthVerifyMiddleware, BrandsController.CreateBrand);
 Router.post("/UpdateBrand/:id", AuthVerifyMiddleware, BrandsController.UpdateBrand);
 Router.get("/BrandList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, BrandsController.BrandList);
 Router.get("/BrandDropDwon", AuthVerifyMiddleware, BrandsController.BrandDropDown)
+
+
+
+//Categoris
+Router.post("/CreateCategoris", AuthVerifyMiddleware, CategoriesControllers.CreateCategories);
+Router.post("/UpdateCategoris/:id", AuthVerifyMiddleware, CategoriesControllers.UpdateCategories);
+Router.get("/CategorisList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CategoriesControllers.CategoriesList);
+Router.get("/CategorisDropDwon", AuthVerifyMiddleware, CategoriesControllers.CategoriesDropDown)
+
+
+
+// Customers
+Router.post("/CreateCustomers", AuthVerifyMiddleware, CustomersControllers.CreateCustomer);
+Router.post("/UpdateCustomers/:id", AuthVerifyMiddleware, CustomersControllers.UpdateCustomer);
+Router.get("/CustomersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware, CustomersControllers.CustomerList);
+Router.get("/CustomersDropDwon", AuthVerifyMiddleware, CustomersControllers.CustomerDropDown)
+
+
+
+// Suppliers
+Router.post("/CreateSuppliers", AuthVerifyMiddleware, SuppliersController.CreateSupplier);
+Router.post("/UpdateSuppliers/:id", AuthVerifyMiddleware, SuppliersController.UpdateSupplier);
+Router.get("/SuppliersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,  SuppliersController.SupplierList);
+Router.get("/SuppliersDropDwon", AuthVerifyMiddleware, SuppliersController.SupplierDropDown)
+
+
+
+
+
 
 
 
