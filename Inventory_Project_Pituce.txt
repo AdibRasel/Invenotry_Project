@@ -186,3 +186,5 @@ class  27
 class 29
 class 30
 class 31 dekhte hobe
+class 29 theke abar dekhte hobe
+class 32

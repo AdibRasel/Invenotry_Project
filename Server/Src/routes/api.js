@@ -18,8 +18,11 @@ const CustomersControllers = require("../controllers/Customers/CustomerControlle
 // Suppliers
 const SuppliersController = require("../controllers/Suppliers/SuppliersController")
 
-//Expenses
-const Expenses = require("../controllers/Expenses/ExpensesTypesControllers")
+//Expenses Type
+const ExpensesTypes = require("../controllers/Expenses/ExpensesTypesControllers")
+
+// Expenses Controller 
+const ExpensesController = require("../controllers/Expenses/ExpensesController")
 
 
 
@@ -71,14 +74,19 @@ Router.get("/SuppliersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware
 Router.get("/SuppliersDropDwon", AuthVerifyMiddleware, SuppliersController.SupplierDropDown)
 
 
-// Expenses
-Router.post("/CreateExpensesTypes", AuthVerifyMiddleware, Expenses.CreateExpenseTypes);
-Router.post("/UpdateExpensesTypes/:id", AuthVerifyMiddleware, Expenses.UpdateExpenseTypes);
-Router.get("/ExpensesTypesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,  Expenses.ExpenseTypesList);
-Router.get("/ExpensesTypesDropDwon", AuthVerifyMiddleware, Expenses.ExpenseTypesDropDown)
+// Expenses Types
+Router.post("/CreateExpensesTypes", AuthVerifyMiddleware, ExpensesTypes.CreateExpenseTypes);
+Router.post("/UpdateExpensesTypes/:id", AuthVerifyMiddleware, ExpensesTypes.UpdateExpenseTypes);
+Router.get("/ExpensesTypesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,  ExpensesTypes.ExpenseTypesList);
+Router.get("/ExpensesTypesDropDwon", AuthVerifyMiddleware, ExpensesTypes.ExpenseTypesDropDown)
 
 
 
+
+// Expenses 
+Router.post("/CreateExpenses", AuthVerifyMiddleware, ExpensesController.CreateExpense)
+Router.post("/UpdateExpenses/:id", AuthVerifyMiddleware, ExpensesController.UpdateExpense)
+Router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ExpensesController.ExpensesList)
 
 
 
