@@ -24,7 +24,8 @@ const ExpensesTypes = require("../controllers/Expenses/ExpensesTypesControllers"
 // Expenses Controller 
 const ExpensesController = require("../controllers/Expenses/ExpensesController")
 
-
+// Product Controller 
+const ProductController = require("../controllers/Products/ProductsController")
 
 
 
@@ -90,7 +91,9 @@ Router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware
 
 
 
-
+// Products 
+Router.post("/CreateProduct", AuthVerifyMiddleware, ProductController.CreateProduct);
+Router.post("/UpdateProduct/:id", AuthVerifyMiddleware, ProductController.UpdateProduct)
 
 
 
