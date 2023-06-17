@@ -93,7 +93,8 @@ Router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware
 
 // Products 
 Router.post("/CreateProduct", AuthVerifyMiddleware, ProductController.CreateProduct);
-Router.post("/UpdateProduct/:id", AuthVerifyMiddleware, ProductController.UpdateProduct)
+Router.post("/UpdateProduct/:id", AuthVerifyMiddleware, ProductController.UpdateProduct);
+Router.get("/ProductsList/:pageNo/:perPage/:SearchKeyword", AuthVerifyMiddleware, ProductController.ProductList)
 
 
 
