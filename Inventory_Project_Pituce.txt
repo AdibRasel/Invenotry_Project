@@ -188,3 +188,6 @@ class 30
 class 31 dekhte hobe
 class 29 theke abar dekhte hobe
 class 32
+class 34 complate 
+class 35
+class 37

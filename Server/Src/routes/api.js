@@ -27,6 +27,9 @@ const ExpensesController = require("../controllers/Expenses/ExpensesController")
 // Product Controller 
 const ProductController = require("../controllers/Products/ProductsController")
 
+//Purchases Controller
+const PurchasesController = require("../controllers/Purchases/PurchasesController")
+
 
 
 // User Profile
@@ -95,6 +98,12 @@ Router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware
 Router.post("/CreateProduct", AuthVerifyMiddleware, ProductController.CreateProduct);
 Router.post("/UpdateProduct/:id", AuthVerifyMiddleware, ProductController.UpdateProduct);
 Router.get("/ProductsList/:pageNo/:perPage/:SearchKeyword", AuthVerifyMiddleware, ProductController.ProductList)
+
+
+//Purchases
+Router.post("/CreatePurchases", AuthVerifyMiddleware, PurchasesController.CreatePurchases)
+
+
 
 
 
