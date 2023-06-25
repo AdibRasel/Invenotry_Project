@@ -102,6 +102,7 @@ Router.get("/ProductsList/:pageNo/:perPage/:SearchKeyword", AuthVerifyMiddleware
 
 //Purchases
 Router.post("/CreatePurchases", AuthVerifyMiddleware, PurchasesController.CreatePurchases)
+Router.post("/PurchasesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, PurchasesController.PurchasesList)
 
 
 
