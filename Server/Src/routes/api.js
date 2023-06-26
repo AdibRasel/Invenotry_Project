@@ -30,6 +30,12 @@ const ProductController = require("../controllers/Products/ProductsController")
 //Purchases Controller
 const PurchasesController = require("../controllers/Purchases/PurchasesController")
 
+//Sales Controller
+const SalesController = require("../controllers/Sales/SalesController")
+
+//Returns Controllers
+const ReturnController = require("../controllers/Returns/ReturnControllers")
+
 
 
 // User Profile
@@ -105,6 +111,14 @@ Router.post("/CreatePurchases", AuthVerifyMiddleware, PurchasesController.Create
 Router.post("/PurchasesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, PurchasesController.PurchasesList)
 
 
+// Sales
+Router.post("/CreateSales", AuthVerifyMiddleware, SalesController.CreateSales)
+Router.post("/SalesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, SalesController.SalesList)
+
+
+// Return 
+Router.post("/CreateReturn", AuthVerifyMiddleware, ReturnController.CreateReturn)
+Router.post("/ReturnList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ReturnController.ReturnList)
 
 
 
