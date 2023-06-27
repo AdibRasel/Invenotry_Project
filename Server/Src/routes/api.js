@@ -109,17 +109,19 @@ Router.get("/ProductsList/:pageNo/:perPage/:SearchKeyword", AuthVerifyMiddleware
 //Purchases
 Router.post("/CreatePurchases", AuthVerifyMiddleware, PurchasesController.CreatePurchases)
 Router.post("/PurchasesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, PurchasesController.PurchasesList)
+Router.get("/PurchasesDelete/:id", AuthVerifyMiddleware, PurchasesController.PurchasesDelete)
 
 
 // Sales
 Router.post("/CreateSales", AuthVerifyMiddleware, SalesController.CreateSales)
 Router.post("/SalesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, SalesController.SalesList)
+Router.get("/SalesDelete/:id", AuthVerifyMiddleware, SalesController.SalesDelete)
 
 
 // Return 
 Router.post("/CreateReturn", AuthVerifyMiddleware, ReturnController.CreateReturn)
 Router.post("/ReturnList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ReturnController.ReturnList)
-
+Router.get("/ReturnDelete/:id", AuthVerifyMiddleware, ReturnController.ReturnDelete)
 
 
 module.exports=Router
