@@ -22,6 +22,6 @@ exports.PurchasesList = async (req, res)=>{
 
 // Purchases Delete
 exports.PurchasesDelete = async (req, res)=>{
-    let Result = DeleteParentChildsService(req, ParentModel, ChildsModel, "PurchaseID")
+    let Result = await DeleteParentChildsService(req, ParentModel, ChildsModel, "PurchaseID")
     res.status(200).json(Result)
 }

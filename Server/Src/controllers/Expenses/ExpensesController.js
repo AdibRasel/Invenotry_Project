@@ -1,5 +1,6 @@
 const DataModel = require("../../models/Expnses/ExpensesModel")
 const CreateService = require("../../services/common/CreateService");
+const DeleteService = require("../../services/common/DeleteService");
 const ListOneJoinService = require("../../services/common/ListOneJoinService");
 const UpdateService = require("../../services/common/UpdateService");
 
@@ -30,3 +31,8 @@ exports.ExpensesList = async (req, res)=>{
     res.status(200).json(Result)
 }
 
+
+exports.DeleteExpense = async (req, res)=>{
+    let Result = await DeleteService (req, DataModel)
+    res.status(200).json(Result)
+}

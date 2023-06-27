@@ -2,6 +2,7 @@ const ParentModel = require("../../models/Sales/SalesModel");
 const ChildsModel = require("../../models/Sales/SaleProductsModel");
 const CreateParentChildsService = require("../../services/common/CreateParentChildsService");
 const ListOneJoinService = require("../../services/common/ListOneJoinService");
+const DeleteParentChildsService = require("../../services/common/DeleteParentChildsService");
 
 // Create Sales
 exports.CreateSales = async (req, res)=>{
@@ -22,6 +23,6 @@ exports.SalesList = async (req, res)=>{
 
 // Sales Delete
 exports.SalesDelete = async (req, res)=>{
-    let Result = DeleteParentChildsService(req, ParentModel, ChildsModel, "SalesID")
+    let Result = await DeleteParentChildsService(req, ParentModel, ChildsModel, "SalesID")
     res.status(200).json(Result)
 }
