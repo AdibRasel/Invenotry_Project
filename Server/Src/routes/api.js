@@ -97,7 +97,7 @@ Router.get("/ExpensesTypesDropDwon", AuthVerifyMiddleware, ExpensesTypes.Expense
 Router.post("/CreateExpenses", AuthVerifyMiddleware, ExpensesController.CreateExpense)
 Router.post("/UpdateExpenses/:id", AuthVerifyMiddleware, ExpensesController.UpdateExpense)
 Router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ExpensesController.ExpensesList)
-
+Router.get("/DeleteExpense/:id", AuthVerifyMiddleware, ExpensesController.DeleteExpense)
 
 
 // Products 
