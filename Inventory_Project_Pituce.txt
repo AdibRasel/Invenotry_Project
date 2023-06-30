@@ -196,3 +196,5 @@ class 39
 class 40 valo kore dekhte hobe
 class 43
 Purchass, Sales, Return a Create and Delete a problem ace segulu pore thik korte hobe
+Expense Delete a problem ace
+All item a Delete api niye kaj korte hobe 

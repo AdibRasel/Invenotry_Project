@@ -58,6 +58,8 @@ Router.post("/CreateBrand", AuthVerifyMiddleware, BrandsController.CreateBrand);
 Router.post("/UpdateBrand/:id", AuthVerifyMiddleware, BrandsController.UpdateBrand);
 Router.get("/BrandList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, BrandsController.BrandList);
 Router.get("/BrandDropDwon", AuthVerifyMiddleware, BrandsController.BrandDropDown)
+Router.get("/DeleteBrands/:id", AuthVerifyMiddleware, BrandsController.DeleteBrand)
+
 
 
 
@@ -66,6 +68,7 @@ Router.post("/CreateCategoris", AuthVerifyMiddleware, CategoriesControllers.Crea
 Router.post("/UpdateCategoris/:id", AuthVerifyMiddleware, CategoriesControllers.UpdateCategories);
 Router.get("/CategorisList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CategoriesControllers.CategoriesList);
 Router.get("/CategorisDropDwon", AuthVerifyMiddleware, CategoriesControllers.CategoriesDropDown)
+Router.get("/DeleteCategories/:id", AuthVerifyMiddleware, CategoriesControllers.DeleteCategories)
 
 
 
