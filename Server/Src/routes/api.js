@@ -34,7 +34,10 @@ const PurchasesController = require("../controllers/Purchases/PurchasesControlle
 const SalesController = require("../controllers/Sales/SalesController")
 
 //Returns Controllers
-const ReturnController = require("../controllers/Returns/ReturnControllers")
+const ReturnController = require("../controllers/Returns/ReturnControllers");
+
+// TestController 
+const  TestController  = require("../controllers/Test/Controller");
 
 
 
@@ -125,6 +128,11 @@ Router.get("/SalesDelete/:id", AuthVerifyMiddleware, SalesController.SalesDelete
 Router.post("/CreateReturn", AuthVerifyMiddleware, ReturnController.CreateReturn)
 Router.post("/ReturnList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ReturnController.ReturnList)
 Router.get("/ReturnDelete/:id", AuthVerifyMiddleware, ReturnController.ReturnDelete)
+
+
+
+// Test 
+Router.post("/Test", TestController.TestController)
 
 
 module.exports=Router
