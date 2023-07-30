@@ -198,3 +198,12 @@ class 43
 Purchass, Sales, Return a Create and Delete a problem ace segulu pore thik korte hobe
 Expense Delete a problem ace
 All item a Delete api niye kaj korte hobe 
+
+
+
+Class Re-Start 29/07/2023
+class 41
+class 43
+43 er pore dekhte hobe 46 porjonto
+class 46
+class 47

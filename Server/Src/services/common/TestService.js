@@ -9,16 +9,29 @@ const TestService = async (Request, DataModel ) => {
         let perPage = Number(Request.params.perPage);
 
         let skipRow = (pageNo - 1 ) * perPage;
+
+
+
+
+
+
+
+
+
+
         
 
-        let Data = await DataModel.aggregate(
-            [
-                {$group:{_id:"$city", ProtiCityTeTotalSalary:{$sum:"$salary"}}}
-            ]
-        )
-
-
-
+let Data = await DataModel.aggregate(
+    [
+        {$addFields:{"Var":{
+                                $not:[
+                                    {$eq:["$salary", 2000]}
+                                ]
+                            }
+                    }
+        }
+    ]
+)
 
 
 

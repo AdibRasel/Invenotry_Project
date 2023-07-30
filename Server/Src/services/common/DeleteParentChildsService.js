@@ -34,7 +34,7 @@ const DeleteParentChildsService= async (Request, ParentModel,ChildsModel,JoinPro
         session.endSession();
 
         
-        return {status: "success",Parent:ParentDelete,Childs:ChildsDelete}
+        return {status: "success TEST",Parent:ParentDelete,Childs:ChildsDelete}
 
     }
     catch (error) {

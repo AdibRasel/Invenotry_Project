@@ -36,6 +36,14 @@ const SalesController = require("../controllers/Sales/SalesController")
 //Returns Controllers
 const ReturnController = require("../controllers/Returns/ReturnControllers");
 
+//Report Controllers
+const ReportController = require("../controllers/Report/ReportController")
+
+
+
+
+
+
 // TestController 
 const  TestController  = require("../controllers/Test/Controller");
 
@@ -131,8 +139,30 @@ Router.get("/ReturnDelete/:id", AuthVerifyMiddleware, ReturnController.ReturnDel
 
 
 
+// Report 
+Router.post("/ExpensesByDate", AuthVerifyMiddleware, ReportController.ExpensesByDate)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Test 
 Router.post("/Test", TestController.TestController)
+// Router.post("/TestLookup/:idOne/:anytextTwo/:textThree", TestController.TestLookup)
+Router.post("/TestLookup", TestController.TestLookup)
 
 
 module.exports=Router
