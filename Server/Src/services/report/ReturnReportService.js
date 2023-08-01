@@ -12,12 +12,15 @@ const ReturnReportService = async (Request)=>{
                     Total:[{
                         $group:{
                             _id:0,
-                            TotalAmount:{$sum:"$Amount"}
+                            TotalAmount:{$sum:"$Total"}
                         }
                     }],
-                    Rows:[{
-                        $lookup: {from: "expensetypes", localField: "TypeID", foreignField: "_id", as: "Type"}
-                    }],
+                    Rows:[
+                        {$lookup: {from: "products", localField: "ProductID", foreignField: "_id", as: "Products"}},
+                        {$unwind:"$products"},
+                        {$lookup: {from: "brands", localField: "products.BrandID", foreignField: "_id", as: "brands"}},
+                        {$lookup: {from: "categories", localField: "products.CategoryID", foreignField: "_id", as: "categories"}},
+                    ],
                 }
             }
         ])

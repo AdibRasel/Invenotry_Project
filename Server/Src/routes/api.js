@@ -141,6 +141,9 @@ Router.get("/ReturnDelete/:id", AuthVerifyMiddleware, ReturnController.ReturnDel
 
 // Report 
 Router.post("/ExpensesByDate", AuthVerifyMiddleware, ReportController.ExpensesByDate)
+Router.post("/PurchaseByDate", AuthVerifyMiddleware, ReportController.PurchaseByDate)
+Router.post("/ReturnByDate", AuthVerifyMiddleware, ReportController.ReturnByDate)
+Router.post("/SelesByDate", AuthVerifyMiddleware, ReportController.SelesByDate)
 
 
 

@@ -1,23 +1,26 @@
-const PurchessModel = require("../../models/Purchases/PurchaseProductsModel");
+const PurchaseProductsModel = require("../../models/Purchases/PurchaseProductsModel");
 const PurchaseReportService = async (Request)=>{
     try{
         let UserEmail = Request.headers['email'];
         let FormDate = Request.body['FormDate'];
         let ToDate = Request.body['ToDate'];
 
-        let data = await PurchessModel.aggregate([
+        let data = await PurchaseProductsModel.aggregate([
             {$match: {UserEmail:UserEmail, CreateDate:{$gte: new Date(FormDate), $lte:new Date(ToDate)}}},
             {
                 $facet:{
                     Total:[{
                         $group:{
                             _id:0,
-                            TotalAmount:{$sum:"$Amount"}
+                            TotalAmount:{$sum:"$Total"}
                         }
                     }],
-                    Rows:[{
-                        $lookup: {from: "expensetypes", localField: "TypeID", foreignField: "_id", as: "Type"}
-                    }],
+                    Rows:[
+                        {$lookup: {from: "products", localField: "ProductID", foreignField: "_id", as: "Products"}},
+                        {$unwind:"$products"},
+                        {$lookup: {from: "brands", localField: "products.BrandID", foreignField: "_id", as: "brands"}},
+                        {$lookup: {from: "categories", localField: "products.CategoryID", foreignField: "_id", as: "categories"}},
+                    ],
                 }
             }
         ])
