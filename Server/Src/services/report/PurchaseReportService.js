@@ -6,7 +6,7 @@ const PurchaseReportService = async (Request)=>{
         let ToDate = Request.body['ToDate'];
 
         let data = await PurchaseProductsModel.aggregate([
-            {$match: {UserEmail:UserEmail, CreateDate:{$gte: new Date(FormDate), $lte:new Date(ToDate)}}},
+            {$match: {UserEmail:UserEmail, CreatedDate:{$gte: new Date(FormDate), $lte:new Date(ToDate)}}},
             {
                 $facet:{
                     Total:[{
@@ -17,7 +17,7 @@ const PurchaseReportService = async (Request)=>{
                     }],
                     Rows:[
                         {$lookup: {from: "products", localField: "ProductID", foreignField: "_id", as: "Products"}},
-                        {$unwind:"$products"},
+                        // { $unwind: "$products" },
                         {$lookup: {from: "brands", localField: "products.BrandID", foreignField: "_id", as: "brands"}},
                         {$lookup: {from: "categories", localField: "products.CategoryID", foreignField: "_id", as: "categories"}},
                     ],

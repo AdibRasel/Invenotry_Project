@@ -39,6 +39,9 @@ const ReturnController = require("../controllers/Returns/ReturnControllers");
 //Report Controllers
 const ReportController = require("../controllers/Report/ReportController")
 
+// Summary Controller 
+const SummaryController = require("../controllers/Summary/SummaryController")
+
 
 
 
@@ -145,6 +148,12 @@ Router.post("/PurchaseByDate", AuthVerifyMiddleware, ReportController.PurchaseBy
 Router.post("/ReturnByDate", AuthVerifyMiddleware, ReportController.ReturnByDate)
 Router.post("/SelesByDate", AuthVerifyMiddleware, ReportController.SelesByDate)
 
+
+//Summary
+Router.get("/ExpenseSummary", AuthVerifyMiddleware, SummaryController.ExpenseSummary)
+Router.get("/PurchaseSummary", AuthVerifyMiddleware, SummaryController.PurchaseSummary)
+Router.get("/ReturnSummary", AuthVerifyMiddleware, SummaryController.ReturnSummary)
+Router.get("/SelesSummary", AuthVerifyMiddleware, SummaryController.SelesSummary)
 
 
 
