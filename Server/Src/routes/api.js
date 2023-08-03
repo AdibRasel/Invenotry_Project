@@ -73,6 +73,7 @@ Router.post("/UpdateBrand/:id", AuthVerifyMiddleware, BrandsController.UpdateBra
 Router.get("/BrandList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, BrandsController.BrandList);
 Router.get("/BrandDropDwon", AuthVerifyMiddleware, BrandsController.BrandDropDown)
 Router.get("/DeleteBrands/:id", AuthVerifyMiddleware, BrandsController.DeleteBrand)
+Router.post("/BrandDetailsByID/:id", AuthVerifyMiddleware, BrandsController.BrandDetailsByID)
 
 
 
@@ -83,6 +84,7 @@ Router.post("/UpdateCategoris/:id", AuthVerifyMiddleware, CategoriesControllers.
 Router.get("/CategorisList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CategoriesControllers.CategoriesList);
 Router.get("/CategorisDropDwon", AuthVerifyMiddleware, CategoriesControllers.CategoriesDropDown)
 Router.get("/DeleteCategories/:id", AuthVerifyMiddleware, CategoriesControllers.DeleteCategories)
+Router.post("/CategoriesDetailsByID/:id", AuthVerifyMiddleware, CategoriesControllers.CategoriesDetailsByID)
 
 
 
@@ -91,6 +93,7 @@ Router.post("/CreateCustomers", AuthVerifyMiddleware, CustomersControllers.Creat
 Router.post("/UpdateCustomers/:id", AuthVerifyMiddleware, CustomersControllers.UpdateCustomer);
 Router.get("/CustomersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware, CustomersControllers.CustomerList);
 Router.get("/CustomersDropDwon", AuthVerifyMiddleware, CustomersControllers.CustomerDropDown)
+Router.post("/CustomerDetailsByID/:id", AuthVerifyMiddleware, CustomersControllers.CustomerDetailsByID)
 
 
 
@@ -99,6 +102,7 @@ Router.post("/CreateSuppliers", AuthVerifyMiddleware, SuppliersController.Create
 Router.post("/UpdateSuppliers/:id", AuthVerifyMiddleware, SuppliersController.UpdateSupplier);
 Router.get("/SuppliersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,  SuppliersController.SupplierList);
 Router.get("/SuppliersDropDwon", AuthVerifyMiddleware, SuppliersController.SupplierDropDown)
+Router.post("/SupplierDetailsByID/:id", AuthVerifyMiddleware, SuppliersController.SupplierDetailsByID)
 
 
 // Expenses Types
@@ -106,6 +110,7 @@ Router.post("/CreateExpensesTypes", AuthVerifyMiddleware, ExpensesTypes.CreateEx
 Router.post("/UpdateExpensesTypes/:id", AuthVerifyMiddleware, ExpensesTypes.UpdateExpenseTypes);
 Router.get("/ExpensesTypesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,  ExpensesTypes.ExpenseTypesList);
 Router.get("/ExpensesTypesDropDwon", AuthVerifyMiddleware, ExpensesTypes.ExpenseTypesDropDown)
+Router.post("/ExpenseTypesDetailsByID/:id", AuthVerifyMiddleware, ExpensesTypes.ExpenseTypesDetailsByID)
 
 
 
@@ -115,12 +120,14 @@ Router.post("/CreateExpenses", AuthVerifyMiddleware, ExpensesController.CreateEx
 Router.post("/UpdateExpenses/:id", AuthVerifyMiddleware, ExpensesController.UpdateExpense)
 Router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, ExpensesController.ExpensesList)
 Router.get("/DeleteExpense/:id", AuthVerifyMiddleware, ExpensesController.DeleteExpense)
+Router.post("/ExpenseDetailsByID/:id", AuthVerifyMiddleware, ExpensesController.ExpenseDetailsByID)
 
 
 // Products 
 Router.post("/CreateProduct", AuthVerifyMiddleware, ProductController.CreateProduct);
 Router.post("/UpdateProduct/:id", AuthVerifyMiddleware, ProductController.UpdateProduct);
 Router.get("/ProductsList/:pageNo/:perPage/:SearchKeyword", AuthVerifyMiddleware, ProductController.ProductList)
+Router.post("/ProductDetailsByID/:id", AuthVerifyMiddleware, ProductController.ProductDetailsByID);
 
 
 //Purchases

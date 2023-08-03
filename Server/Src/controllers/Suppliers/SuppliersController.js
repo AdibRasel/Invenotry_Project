@@ -3,6 +3,7 @@ const CreateService = require("../../services/common/CreateService");
 const UpdateService = require("../../services/common/UpdateService");
 const ListService = require("../../services/common/ListService");
 const DropDownService = require("../../services/common/DropDownService");
+const DetailsByIDService = require("../../services/common/DetailsByIDService");
 
 
 exports.CreateSupplier = async (req, res)=>{
@@ -26,5 +27,13 @@ exports.SupplierList = async (req, res)=>{
 
 exports.SupplierDropDown = async (req, res)=>{
     let Result = await DropDownService(req, DataModel, {_id:1, Name:0})
+    res.status(200).json(Result)
+}
+
+
+
+ // Supplier Details By Id 
+ exports.SupplierDetailsByID = async (req, res) => {
+    let Result = await DetailsByIDService(req, DataModel);
     res.status(200).json(Result)
 }

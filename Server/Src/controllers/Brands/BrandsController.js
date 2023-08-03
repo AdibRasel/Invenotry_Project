@@ -7,6 +7,7 @@ const CheckAssociateService = require("../../services/common/CheckAssociateServi
 const DeleteService = require("../../services/common/DeleteService");
 const ProductsModel = require("../../models/Products/ProductModel")
 const mongoose = require("mongoose");
+const DetailsByIDService = require("../../services/common/DetailsByIDService");
 
 
 
@@ -49,3 +50,13 @@ exports.DeleteBrand=async (req, res) => {
         res.status(200).json(Result)
     // }
  }
+
+
+
+
+
+ // Brand Details By Id 
+exports.BrandDetailsByID = async (req, res) => {
+    let Result = await DetailsByIDService(req, DataModel);
+    res.status(200).json(Result)
+}

@@ -3,6 +3,7 @@ const CreateService = require("../../services/common/CreateService")
 const UpdateService = require("../../services/common/UpdateService");
 const ListTwoJoinService = require("../../services/common/ListTwoJoinService");
 const ListOneJoinService = require("../../services/common/ListOneJoinService");
+const DetailsByIDService = require("../../services/common/DetailsByIDService");
 
 // Create Product 
 exports.CreateProduct = async (req, res)=>{
@@ -37,4 +38,12 @@ exports.ProductList = async (req, res)=> {
     // res.status(200).json(Result)
 
 
+}
+
+
+
+ // Product Details By Id 
+ exports.ProductDetailsByID = async (req, res) => {
+    let Result = await DetailsByIDService(req, DataModel);
+    res.status(200).json(Result)
 }
