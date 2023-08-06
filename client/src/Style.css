@@ -1,0 +1,49 @@
+.Button_One{
+    padding: 10px 40px 10px 40px;
+    background-color: #266f1c;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 50ms;
+}
+.Button_One:hover{
+    background-color: #29aa18;
+}
+
+.Button_Two{
+    padding: 10px 40px 10px 40px;
+    background-color: #389cab;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 50ms;
+}
+.Button_Two:hover{
+    background-color: #26bdd4;
+}
+
+.Button_Three{
+    padding: 20px 50px 20px 50px;
+    background-color: #1c426f;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 50ms;
+}
+.Button_Three:hover{
+    background-color: #155eb7;
+    
+}
+
+.Button_Four{
+    padding: 10px 40px 10px 40px;
+    background-color: #37f3e8;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    transition: 50ms;
+}
+.Button_One:hover{
+    background-color: #06827a;    
+    color: rgb(255, 255, 255);
+}
