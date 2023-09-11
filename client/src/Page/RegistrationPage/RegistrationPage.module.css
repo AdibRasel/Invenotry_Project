@@ -1,0 +1,61 @@
+.Box{
+    width: 80%;
+    margin: auto;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 50px;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #333;
+  }
+
+.EmailAddress{
+    display: block;
+}
+
+.FirstName{
+    display: block;
+}
+
+.LastName{
+    display: block;
+}
+
+.Mobile{
+    display: block;
+}
+
+.Password{
+    display: block;
+}
+
+
+.input_Item{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: 500ms;
+    margin-bottom: 10px;
+}
+.input_Item:focus {
+    color: white;
+    background-color: #389cab;
+}
+
+.Submit{
+    padding: 10px 40px 10px 40px;
+    background-color: #266f1c;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 50ms;
+    width: 100%;
+}
+.Submit:hover{
+    background-color: #29aa18;
+}
+
+.BTN{
+    margin-bottom: 40px;
+}

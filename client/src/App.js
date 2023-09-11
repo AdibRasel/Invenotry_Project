@@ -9,6 +9,7 @@ import "./Style.css"
 import LoginPage from './Page/LoginPage/LoginPage';
 import HomePage from './Page/HomePage/HomePage';
 import DashBoard from './Page/DashBoard/DashBoard';
+import RegistrationPage from './Page/RegistrationPage/RegistrationPage';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
               <Routes>
                <Route path="/" element={<HomePage />} />
                 <Route path="/LoginPage" element={<LoginPage />} />
+                <Route path="/RegistrationPage" element={<RegistrationPage />} />
               </Routes>
             </BrowserRouter>
           </Fragment>

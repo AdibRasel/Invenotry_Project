@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import axios from "axios"
 import styles  from "./LoginPage.module.css"
-import { SetToken, SetUserDetails } from '../../Helper/SessionHelper';
+import { SetToken, GetToken, SetUserDetails, SetLoginStatus } from '../../Helper/SessionHelper';
 
 let PassRef, EmailRef = useRef;
 
@@ -62,7 +62,7 @@ const LoginPage = () => {
                     <div className={styles.NextButton}><a onClick={Submit} className='Button_Two'>Login</a></div>
 
                     <div className={styles.SignForget}>
-                        <p className={styles.Sign_Left}><a className='Button_One' href="">Create Account / Sign Up</a></p>
+                        <p className={styles.Sign_Left}><a className='Button_One' href="/RegistrationPage">Create Account / Sign Up</a></p>
                         <p className={styles.Password_Right}><a className='Button_One' href="">Forget Password</a></p>
                     </div>
            </div>

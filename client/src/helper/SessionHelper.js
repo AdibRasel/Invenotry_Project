@@ -8,6 +8,14 @@ class SessionHelper {
     }
 
 
+    SetLoginStatus(LoginStatus){
+        localStorage.setItem("LoginStatus", LoginStatus)
+    }
+    GetLoginStatus(){
+        return localStorage.getItem("LoginStatus")
+    }
+
+
     SetUserDetails(UserDetails){
         localStorage.setItem("UserDetails", JSON.stringify(UserDetails))
     }
@@ -15,7 +23,9 @@ class SessionHelper {
         return JSON.parse(localStorage.getItem("UserDetails"))
     }
 
+ 
+
 }
 
 
-export const {SetToken, GetToken, SetUserDetails, getUserDetails} = new SessionHelper();
+export const {SetToken, GetToken, SetUserDetails, getUserDetails, SetLoginStatus, GetLoginStatus} = new SessionHelper();
